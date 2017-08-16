@@ -1,0 +1,12 @@
+E:\Soft\dev\SeleniumWebdriverСourses\SeleniumWebdriverСourses\SeleniumWebdriverСourses\bin\Debug\SeleniumWebdriverСourses.dll
+E:\Soft\dev\SeleniumWebdriverСourses\SeleniumWebdriverСourses\SeleniumWebdriverСourses\bin\Debug\SeleniumWebdriverСourses.pdb
+E:\Soft\dev\SeleniumWebdriverСourses\SeleniumWebdriverСourses\SeleniumWebdriverСourses\bin\Debug\nunit.framework.dll
+E:\Soft\dev\SeleniumWebdriverСourses\SeleniumWebdriverСourses\SeleniumWebdriverСourses\bin\Debug\WebDriver.dll
+E:\Soft\dev\SeleniumWebdriverСourses\SeleniumWebdriverСourses\SeleniumWebdriverСourses\bin\Debug\WebDriver.Support.dll
+E:\Soft\dev\SeleniumWebdriverСourses\SeleniumWebdriverСourses\SeleniumWebdriverСourses\bin\Debug\nunit.framework.xml
+E:\Soft\dev\SeleniumWebdriverСourses\SeleniumWebdriverСourses\SeleniumWebdriverСourses\bin\Debug\WebDriver.xml
+E:\Soft\dev\SeleniumWebdriverСourses\SeleniumWebdriverСourses\SeleniumWebdriverСourses\bin\Debug\WebDriver.Support.xml
+E:\Soft\dev\SeleniumWebdriverСourses\SeleniumWebdriverСourses\SeleniumWebdriverСourses\obj\Debug\SeleniumWebdriverСourses.csprojResolveAssemblyReference.cache
+E:\Soft\dev\SeleniumWebdriverСourses\SeleniumWebdriverСourses\SeleniumWebdriverСourses\obj\Debug\SeleniumWebdriverСourses.csproj.CoreCompileInputs.cache
+E:\Soft\dev\SeleniumWebdriverСourses\SeleniumWebdriverСourses\SeleniumWebdriverСourses\obj\Debug\SeleniumWebdriverСourses.dll
+E:\Soft\dev\SeleniumWebdriverСourses\SeleniumWebdriverСourses\SeleniumWebdriverСourses\obj\Debug\SeleniumWebdriverСourses.pdb
