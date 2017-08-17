@@ -93,9 +93,9 @@ namespace SeleniumWebdriverСourses
             Actions.DoubleClick(Driver.FindElement(By.XPath(selector))).Perform();
         }
 
-        public void FindByNameAndClick(string selector)
+        public void FindByNameAndClick(string selector, string message)
         {
-            Driver.FindElement(By.Name(selector)).Click();
+            FindByAndClick(By.Name(selector), "Не удалось кликнуть на " + message);
         }
 
         public void SetTimeoutOptions()
@@ -103,6 +103,13 @@ namespace SeleniumWebdriverСourses
             Driver.Manage().Window.Maximize();
             Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
             Driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(30);
+        }
+
+        public virtual void Authorisation()
+        {
+            FindByNameAndType("username", "admin");
+            FindByNameAndType("password", "admin");
+            FindByNameAndClick("login", "кнопку логина");
         }
     }
 }

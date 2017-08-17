@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 
 namespace SeleniumWebdriverСourses
 {
@@ -11,11 +6,18 @@ namespace SeleniumWebdriverСourses
     //[TestFixture(BrowserType.Ie)]
     //[TestFixture(BrowserType.Firefox)]
 
-    class FirstStepsLesson : SeleniumWebdriverBase
+    public class FirstStepsLesson : SeleniumWebdriverBase
     {
         public FirstStepsLesson(BrowserType browser)
             : base(browser)
         {
+        }
+
+        [OneTimeSetUp]
+        public override void Setup()
+        {
+            SetTimeoutOptions();
+            Driver.Navigate().GoToUrl("http://software-testing.ru/");
         }
 
         [Test(Description = "Проверка title http://software-testing.ru/")]
@@ -23,6 +25,14 @@ namespace SeleniumWebdriverСourses
         public void GoToPageAndCheckTitle()
         {
             Assert.IsTrue(Driver.Title.Equals("Software-Testing.Ru"));
+        }
+
+        [OneTimeTearDown]
+
+        public override void TearDown()
+        {
+            Driver.Close();
+            Driver.Quit();
         }
     }
 }

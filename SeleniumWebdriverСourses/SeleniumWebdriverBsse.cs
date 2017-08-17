@@ -84,16 +84,24 @@ namespace SeleniumWebdriverСourses
         public virtual void Setup()
         {
             SetTimeoutOptions();
-            BaseUrl = "http://software-testing.ru/";
+            BaseUrl = "http://localhost/litecart/admin";
             Driver.Navigate().GoToUrl(BaseUrl);
+            Authorisation();
         }
 
         
         [OneTimeTearDown]
         public virtual void TearDown()
         {
-            Driver.Close();
-            Driver.Quit();
+            try
+            {
+                FindByXpathAndClick(".//*[@id='sidebar']//i[@class='fa fa-sign-out fa-lg']", "кнопку выхода");
+            }
+            finally 
+            {
+                Driver.Close();
+                Driver.Quit();
+            }
         }
     }
 }
