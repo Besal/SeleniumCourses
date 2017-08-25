@@ -52,6 +52,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminPanelSectionsCheck.cs" />
     <Compile Include="FirstStepsLesson.cs" />
     <Compile Include="LoggingAdminPanel.cs" />
     <Compile Include="SeleniumWebdriverBsse.cs" />

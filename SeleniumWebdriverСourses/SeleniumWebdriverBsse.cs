@@ -58,12 +58,11 @@ namespace SeleniumWebdriverСourses
             {
                 FirefoxBinary timeoutbBinary = new FirefoxBinary();
                 timeoutbBinary.Timeout = TimeSpan.FromMilliseconds(10000);
-                DesiredCapabilities caps = DesiredCapabilities.Firefox();
-                caps.SetCapability(CapabilityType.AcceptSslCertificates, true);
-                caps.SetCapability(CapabilityType.PageLoadStrategy, "eager");
-                caps.SetCapability(CapabilityType.SupportsFindingByCss, true);
-                caps.SetCapability(CapabilityType.HasNativeEvents, false);
-                IWebDriver driver = new FirefoxDriver(caps);
+                FirefoxOptions options = new FirefoxOptions();
+                options.SetPreference("pageLoadStrategy", "eager");
+                options.SetPreference("acceptSslCerts", true);
+                options.SetPreference("cssSelectorsEnabled", true);
+                IWebDriver driver = new FirefoxDriver(options);
                 return driver;
             }
 

@@ -29,7 +29,7 @@ namespace SeleniumWebdriverСourses
 
             foreach (var section in listOfSections)
             {
-                Assert.IsFalse(CheckElementExists(
+                Assert.IsTrue(CheckElementExists(
                     By.XPath($"//*[@id='app-']//span[@class='name' and contains(text(), '{section}')]")));
             }
         }
