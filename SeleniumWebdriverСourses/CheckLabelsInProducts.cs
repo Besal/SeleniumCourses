@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using NUnit.Framework;
 using OpenQA.Selenium;
 
@@ -26,6 +27,22 @@ namespace SeleniumWebdriverСourses
                 var countOfStickers = element.Count(sticker => sticker.Displayed);
                 Assert.AreEqual(1, countOfStickers, $"Стикеров у товара {countOfStickers}, а должен быть только один");
             }
+        }
+
+        [Test]
+        public void CheckCountriesSorting()
+        {
+            FindByXpathAndClick("//span[@class='name' and contains(text(), 'Countries')]", "кнопку стран");
+            var list = Driver.FindElements(By.XPath("//table[@class='dataTable']//tr[@class='row']/td[5]/a[@href and text()]"))
+                .Select(el => el.Text)
+                .ToList();
+
+            for (int i = 1; i < list.Count; i++)
+            {
+                Assert.AreEqual(1, string.Compare(list[i], list[i - 1], StringComparison.InvariantCulture));
+            }
+            //CollectionAssert.AreEqual(list.OrderBy(e => e), list);
+
         }
 
         public override void TearDown()
