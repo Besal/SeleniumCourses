@@ -53,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminPanelSectionsCheck.cs" />
+    <Compile Include="CheckLabelsInProducts.cs" />
     <Compile Include="FirstStepsLesson.cs" />
     <Compile Include="LoggingAdminPanel.cs" />
     <Compile Include="SeleniumWebdriverBsse.cs" />
