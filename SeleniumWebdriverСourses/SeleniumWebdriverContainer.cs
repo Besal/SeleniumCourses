@@ -11,11 +11,13 @@ namespace SeleniumWebdriverСourses
     {
         protected IWebDriver Driver { get;}
         protected readonly Actions Actions;
+        protected readonly Random RandomGenerator;
 
         protected SeleniumWebdriverContainer(IWebDriver driver)
         {
             Driver = driver;
             Actions = new Actions(Driver);
+            RandomGenerator = new Random();
         }
 
         public void FindByAndClick(By by, string message)
