@@ -40,6 +40,7 @@ namespace SeleniumWebdriverСourses
                 FindByNameAndType(field.Key, field.Value);
             }
             FindByXpathAndClick(".//*[@class='select2-hidden-accessible']/option[text()= 'United States']", "кнопку выбора страны");
+            FindByXpathAndClick("//select[@name='zone_code']/option[text()='California']", "кнопку выбора штата");
             FindByNameAndClick("create_account", "кнопку создания аккаунта");
             FindByXpathAndClick(".//*[@id='box-account']//a[@href and text()='Logout']", "кнопку \"Logout\"");
             FindByNameAndType("email", eMail);
