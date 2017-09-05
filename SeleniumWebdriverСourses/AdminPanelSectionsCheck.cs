@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using NUnit.Framework;
 using OpenQA.Selenium;
 
@@ -10,85 +11,35 @@ namespace SeleniumWebdriverСourses
 
     public class AdminPanelSectionsCheck : SeleniumWebdriverBase
     {
-        private const string Settings = "Settings";
-        private readonly Dictionary<string, string> _collectionOfSectionsAndHeaders;
 
         public AdminPanelSectionsCheck(BrowserType browser) 
             : base(browser) 
         {
-            #region Dictionary of sections and headers
-
-            _collectionOfSectionsAndHeaders = new Dictionary<string, string>
-            {
-                {"Appearence", "Template"},
-                {"Logotype", ""},
-                {"Catalog", ""},
-                {"Product Groups", ""},
-                {"Option Groups", ""},
-                {"Manufacturers", ""},
-                {"Suppliers", ""},
-                {"Delivery Statuses", ""},
-                {"Sold Out Statuses", ""},
-                {"Quantity Units", ""},
-                {"CSV Import/Export", "CSV Import/Export"},
-                {"Countries", ""},
-                {"Currencies", ""},
-                {"Customers", ""},
-                {"Newsletter", ""},
-                {"Geo Zones", ""},
-                {"Languages", ""},
-                {"Storage Encoding", ""},
-                {"Modules", "Job Modules"},
-                {"Customer", "Customer Modules"},
-                {"Shipping", "Shipping Modules"},
-                {"Payment", "Payment Modules"},
-                {"Order Total", "Order Total Modules"},
-                {"Order Success", "Order Success Modules"},
-                {"Order Action", "Order Action Modules"},
-                {"Orders", ""},
-                {"Order Statuses", ""},
-                {"Pages", ""},
-                {"Reports", "Monthly Sales"},
-                {"Most Sold Products", ""},
-                {"Most Shopping Customers", ""},
-                {Settings, Settings},
-                {"Defaults", Settings},
-                {"General", Settings},
-                {"Listings", Settings},
-                {"Images", Settings},
-                {"Checkout", Settings},
-                {"Advanced", Settings},
-                {"Security", Settings},
-                {"Slides", ""},
-                {"Tax", "Tax Classes"},
-                {"Tax Rates", ""},
-                {"Translations", "Search Translations"},
-                {"Scan Files", "Scan Files For Translations"},
-                {"Users", ""},
-                {"vQmods", ""}
-            };
-            #endregion
         }
 
         [Test(Description = "Checking header(h1) in every section")]
         public void CheckHeaderInEverySection()
         {
-            CheckCatalogSection();
-        }
-        
-        public void CheckCatalogSection()
-        {
-            foreach (var section in _collectionOfSectionsAndHeaders)
+            var sections = Driver.FindElements(By.XPath("//*[@id='box-apps-menu']/li"));
+            for (int i = 1; i < sections.Count; i++)
             {
-                ClickToSectionAndCheckH1(section.Key, section.Value == "" ? section.Key : section.Value);
+                var sectionsForClick = Driver.FindElements(By.XPath($"//*[@id='box-apps-menu']/li[{i}]"));
+                sectionsForClick.First().Click();
+                var subsections =
+                    Driver.FindElements(By.XPath(
+                        "//ul[@id='box-apps-menu']/li[@class='selected']/ul[@class='docs']/li"));
+                if (subsections.Any())
+                {
+                    for (int s = 1; s < subsections.Count + 1; s++)
+                    {
+                        var subsectionsForClick =
+                            Driver.FindElements(By.XPath(
+                                $"//*[@id='box-apps-menu']/li[@class='selected']/ul[@class='docs']/li[{s}]"));
+                        subsectionsForClick.First().Click();
+                        Assert.IsTrue(CheckElementExists(By.XPath(".//*[@id='content']/h1")));
+                    }
+                }
             }
-        }
-
-        private void ClickToSectionAndCheckH1(string section, string h1)
-        {
-            FindByXpathAndClick($"//*[@id='app-']//span[@class='name' and . = '{section}']", $"{section}");
-            Assert.IsTrue(CheckElementExists(By.XPath($"//*[@id='content']/h1[contains(.,'{h1}')]")),
-                $"Заголовок не соответствует разделу. Должен быть {h1}");
         }
     }
 }
