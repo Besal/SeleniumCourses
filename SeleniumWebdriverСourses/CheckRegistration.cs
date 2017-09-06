@@ -16,8 +16,7 @@ namespace SeleniumWebdriverСourses
         [Test]
         public void CheckingRegistration()
         {
-            FindByXpathAndClick(".//*[@id='sidebar']//i[@class='fa fa-chevron-circle-left']",
-            "кнопку главной страницы");
+            ClickToMainPageButton();
             FindByXpathAndClick(
                 ".//*[@id='box-account-login']//a[@href and contains(text(), 'New customers click here')]",
                 "кнопку регистрации пользователя");

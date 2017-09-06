@@ -19,8 +19,7 @@ namespace SeleniumWebdriverСourses
         [Test]
         public void CheckStickers()
         {
-            FindByXpathAndClick(".//*[@id='sidebar']//i[@class='fa fa-chevron-circle-left']",
-                "кнопку главной страницы");
+            ClickToMainPageButton();
             var listOfProducts = Driver
                 .FindElements(By.XPath("//div[@class='image-wrapper']"))
                 .Select(el => el.FindElements(By.XPath("./div[contains(@class, 'sticker') and contains(text(), '')]")))

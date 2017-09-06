@@ -24,8 +24,7 @@ namespace SeleniumWebdriverСourses
         [Test]
         public void CheckProductsFontStylesAndText()
         {
-            FindByXpathAndClick(".//*[@id='sidebar']//i[@class='fa fa-chevron-circle-left']",
-                "кнопку главной страницы");
+            ClickToMainPageButton();
             var nodeOfElement = GetNodeOfElement(".//*[@id='box-campaigns']//li[@class='product column shadow hover-light']");
             var textOfFirstElementOnMainPage = nodeOfElement.Select(el => el
                 .FindElement(By.XPath(

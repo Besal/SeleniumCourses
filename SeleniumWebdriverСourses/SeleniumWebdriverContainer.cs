@@ -113,5 +113,11 @@ namespace SeleniumWebdriverСourses
             FindByNameAndType("password", "admin");
             FindByNameAndClick("login", "кнопку логина");
         }
+
+        public void ClickToMainPageButton()
+        {
+            FindByXpathAndClick(".//*[@id='sidebar']//i[@class='fa fa-chevron-circle-left']",
+                "кнопку главной страницы");
+        }
     }
 }
