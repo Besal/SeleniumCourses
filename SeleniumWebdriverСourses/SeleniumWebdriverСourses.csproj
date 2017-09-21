@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="AdminPanelSectionsCheck.cs" />
     <Compile Include="CartPageHelper.cs" />
+    <Compile Include="CheckBrowsersLogs.cs" />
     <Compile Include="CheckLabelsInProducts.cs" />
     <Compile Include="CheckNewTabs.cs" />
     <Compile Include="CheckProductAdding.cs" />

@@ -76,7 +76,11 @@ namespace SeleniumWebdriverСourses
 
             private static IWebDriver ChromeDriver()
             {
-                IWebDriver driver = new ChromeDriver();
+                ChromeOptions opt = new ChromeOptions();
+                opt.SetLoggingPreference("browser", LogLevel.Severe);
+                opt.SetLoggingPreference("browser", LogLevel.Debug);
+                opt.SetLoggingPreference("browser", LogLevel.Warning);
+                IWebDriver driver = new ChromeDriver(opt);
                 return driver;
             }
 
