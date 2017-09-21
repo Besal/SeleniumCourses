@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading;
 using OpenQA.Selenium;
@@ -118,6 +119,11 @@ namespace SeleniumWebdriverСourses
         {
             FindByXpathAndClick(".//*[@id='sidebar']//i[@class='fa fa-chevron-circle-left']",
                 "кнопку главной страницы");
+        }
+
+        public ReadOnlyCollection<IWebElement> FindElements(By by)
+        {
+            return Driver.FindElements(by);
         }
     }
 }

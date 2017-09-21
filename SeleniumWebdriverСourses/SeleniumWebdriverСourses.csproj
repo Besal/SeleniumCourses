@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminPanelSectionsCheck.cs" />
+    <Compile Include="CartPageHelper.cs" />
     <Compile Include="CheckLabelsInProducts.cs" />
     <Compile Include="CheckNewTabs.cs" />
     <Compile Include="CheckProductAdding.cs" />
@@ -62,6 +63,9 @@
     <Compile Include="CheckRegistration.cs" />
     <Compile Include="FirstStepsLesson.cs" />
     <Compile Include="LoggingAdminPanel.cs" />
+    <Compile Include="MovesHelper.cs" />
+    <Compile Include="MainProductsPageHelper.cs" />
+    <Compile Include="ProductsPageHelper.cs" />
     <Compile Include="SeleniumWebdriverBsse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SeleniumWebdriverContainer.cs" />

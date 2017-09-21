@@ -13,12 +13,20 @@ namespace SeleniumWebdriverСourses
         public BrowserType Browser;
         public static string BaseUrl;
         public Exception Exception { get; set; }
+        protected readonly MovesHelper MovesHelper;
+        protected readonly MainProductsPageHelper MainProductsPageHelper;
+        protected readonly ProductsPageHelper ProductsPageHelper;
+        protected readonly CartPageHelper CartPageHelper;
 
         protected SeleniumWebdriverBase(BrowserType type):base(CreateWebDriver(type))
         {
             Browser = type;
             DesiredCapabilities desCaps = new DesiredCapabilities();
             desCaps.SetCapability("acceptSslCerts", true);
+            MovesHelper = new MovesHelper(Driver);
+            MainProductsPageHelper = new MainProductsPageHelper(Driver);
+            ProductsPageHelper = new ProductsPageHelper(Driver);
+            CartPageHelper = new CartPageHelper(Driver);
         }
 
         private static IWebDriver CreateWebDriver(BrowserType type)
