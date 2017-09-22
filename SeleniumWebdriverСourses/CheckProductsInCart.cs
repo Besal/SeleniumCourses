@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
@@ -24,26 +21,30 @@ namespace SeleniumWebdriverСourses
         {
             var wait = new WebDriverWait(Driver, TimeSpan.FromMilliseconds(2000));
             ClickToMainPageButton();
-            for (int i = 1; i < 4; i++)
+            for (var i = 1; i < 4; i++)
             {
-                MainProductsPageHelper.OpneProductsInformation();
+                MainProductsPageHelper.OpenProductsInformation();
                 ProductsPageHelper.AddFewProductsToCart(wait, i);
                 MovesHelper.MoveToPreviousPage();
             }
             ProductsPageHelper.ClickToCartButton();
-            if (CheckElementExists(By.XPath("//tr[not(@class='header')]/td[@class='sku']")))
+            if (CartPageHelper.CheckAnyProductsExistsInCart())
             {
-                var productsCount = FindElements(By.XPath("//tr[not(@class='header')]/td[@class='sku']"));
-                for (int i = 0; i < productsCount.Count; i++)
+                var productsCount = CartPageHelper.FindAllProductsInCart();
+                for (var i = 0; i < productsCount.Count; i++)
                 {
                     DeleteAllProductsInCart(wait);
                 }
+            }
+            else
+            {
+                Assert.IsFalse(CartPageHelper.CheckAnyProductsExistsInCart(), "Products don't exist in cart");
             }
         }
 
         private void DeleteAllProductsInCart(WebDriverWait wait)
         {
-            var productsInCart = FindElements(By.XPath("//tr[not(@class='header')]/td[@class='sku']"));
+            var productsInCart = CartPageHelper.FindAllProductsInCart();
             CartPageHelper.ClickToProductsDeleteButton();
             wait.Until(ExpectedConditions.StalenessOf(productsInCart.First()));
         }

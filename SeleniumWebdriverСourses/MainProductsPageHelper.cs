@@ -13,7 +13,7 @@ namespace SeleniumWebdriverСourses
         {
         }
 
-        public void OpneProductsInformation()
+        public void OpenProductsInformation()
         {
             FindByXpathAndClick("//div[@id='box-most-popular']//li[@class='product column shadow hover-light'][1]", "товар");
         }
